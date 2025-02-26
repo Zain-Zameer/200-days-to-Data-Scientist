@@ -5,7 +5,10 @@ def writinglines(content,fileVar):
             if i!=len(content)-1:
                 fileVar.writelines('\n')
 
-f = open("data.txt","w")
-l = ["line1","line2","line3","line4","data file handling"]
-writinglines(l,f)
+
+f = open("data2.txt","w")
+f.writinglines = lambda content:writinglines(content,f)
+print(f)
+l = ["Line 1","Line 2","Line 3","Line 4","Line 5"]
+f.writinglines(l)
 f.close()
