@@ -1,11 +1,11 @@
-def writinglines(content,fileVar):
-    for i in range(len(content)):
-        if str(content[i]):
-            fileVar.writelines(content[i])
-            if i!=len(content)-1:
-                fileVar.writelines('\n')
+class MultiplyBy:
+    def __init__(self, factor):
+        self.factor = factor  # Store the multiplier
 
-f = open("data.txt","w")
-l = ["line1","line2","line3","line4","data file handling"]
-writinglines(l,f)
-f.close()
+    def __call__(self, numbers):
+        return [num * self.factor for num in numbers]
+
+# Create an instance and call it like a function
+multiplier = MultiplyBy(10)
+data = [1, 2, 3, 4, 5]
+print(multiplier(data))  # Output: [10, 20, 30, 40, 50]
